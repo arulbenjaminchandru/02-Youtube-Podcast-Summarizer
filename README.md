@@ -1,7 +1,3 @@
-Sure! Here’s a README file for your project:
-
----
-
 # YouTube Transcript Summarizer
 
 This project is a web application that takes a YouTube URL, fetches the transcript of the video, and summarizes it using Gemini AI. The web interface is built using Streamlit.
