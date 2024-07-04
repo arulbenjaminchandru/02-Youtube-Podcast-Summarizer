@@ -1,92 +1,63 @@
-# YouTube Transcript Summarizer
+# YouTube Transcript Summarizer built with Streamlit and IBM WatsonX Mistral AI Model
 
-This project is a web application that takes a YouTube URL, fetches the transcript of the video, and summarizes it using Gemini AI. The web interface is built using Streamlit.
-
-## Features
-
-- Extracts transcript from YouTube videos.
-- Summarizes the transcript using Gemini AI.
-- Simple and intuitive web interface.
+This project is a YouTube Transcript Summarizer built with Streamlit and IBM WatsonX Mistral AI Model. The application extracts the transcript from a given YouTube video URL, chunks the transcript into manageable pieces, and generates a concise summary.
 
 ## Prerequisites
 
-Before you begin, ensure you have met the following requirements:
-
-- Python 3.7 or higher
-- pip (Python package installer)
+- Python 3.6 or later
+- IBM WatsonX API credentials
 
 ## Installation
 
-1. **Clone the repository**:
+0. Get watsonX API credentials
 
+   We need an API Key and project ID to access the models present in watsonX. To get that, please follow below instructions,
+
+   Get a WML API key from https://cloud.ibm.com/iam/apikeys
+
+    Create a watsonX project in https://dataplatform.cloud.ibm.com/wx/home and associate it with WML service on cloud (Watson Machine Learning). Also get the project id of this project.
+
+1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/YouTubeTranscriptSummarizer.git
-    cd YouTubeTranscriptSummarizer
+    git clone https://github.com/yourusername/youtube-transcript-summarizer.git
+    cd youtube-transcript-summarizer
     ```
 
-2. **Install the required packages**:
-
+2. Create a virtual environment and activate it:
     ```bash
-    pip install streamlit youtube-transcript-api pysbd requests dotenv
+    python -m venv venv
+    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
     ```
 
-3. **Set up environment variables**:
+3. Install the required libraries:
+    ```bash
+    pip install streamlit re youtube_transcript_api pysbd python-dotenv ibm-watsonx
+    ```
 
-    Create a `.env` file in the root directory and add your Gemini AI API key:
-
-    ```plaintext
-    GEMINI_API_KEY=your_gemini_api_key
+4. Create a `.env` file in the project directory and add your WatsonX API key and project ID:
+    ```env
+    WATSONX_API_KEY=your_watsonx_api_key
+    PROJECT_ID=your_project_id
     ```
 
 ## Usage
 
-1. **Run the Streamlit application**:
-
+1. Run the Streamlit application:
     ```bash
     streamlit run app.py
     ```
 
-2. **Open your web browser**:
+2. Open your web browser and go to `http://localhost:8501`.
 
-    Visit `http://localhost:8501` to access the application.
+3. Enter the YouTube URL of the video you want to summarize and click "Submit".
 
-3. **Input YouTube URL**:
+## Project Structure
 
-    Enter the URL of the YouTube video you want to summarize and click the "Submit" button. The application will fetch the transcript, summarize it, and display the summary.
-
-## File Structure
-
-```
-.
-├── app.py              # Main application file
-├── README.md           # This README file
-└── .env                # Environment variables file (to be created)
-```
-
-## Dependencies
-
-- **Streamlit**: Web app framework for creating custom web applications.
-- **youtube-transcript-api**: Library to fetch YouTube video transcripts.
-- **pysbd**: Rule-based sentence boundary detection library.
-- **requests**: Simple HTTP library for Python.
-- **dotenv**: Library to load environment variables from a `.env` file.
+- `app.py`: The main application file containing the Streamlit UI and logic for summarizing YouTube transcripts.
+- `.env`: Environment file containing API credentials (not included in the repository, must be created by the user).
 
 ## Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the project.
-2. Create a new feature branch (`git checkout -b feature/AmazingFeature`).
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
-4. Push to the branch (`git push origin feature/AmazingFeature`).
-5. Open a Pull Request.
+Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
 
 ## License
-
-This project is licensed under the MIT License. See the `LICENSE` file for more details.
-
-## Contact
-
-Arul Benjamin Chandru E - [arulbenjaminchandru@gmail.com](mailto:arulbenjaminchandru@gmail.com)
-
-Project Link: [https://github.com/arulbenjaminchandru/02-Youtube-Podcast-Summarizer/](https://github.com/arulbenjaminchandru/02-Youtube-Podcast-Summarizer/)
+This project is licensed under the MIT License.
