@@ -3,4 +3,4 @@ pysbd
 python-dotenv
 youtube-transcript-api
 streamlit
-google-generativeai
+ibm-watsonx-ai
